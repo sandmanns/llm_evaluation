@@ -1,2 +1,2 @@
-# llm_evaluation
-Open-source large language model DeepSeek on a par with proprietary models in clinical decision making
+# Open-source large language model DeepSeek on a par with proprietary models in clinical decision making 
+This repository provides the programming code to reproduce all analyses presented in the manuscript "Open-source large language model DeepSeek on a par with proprietary models in clinical decision making". The input file SupplementaryDataS1.xlsx is available as supplementary information along with the manuscript.
