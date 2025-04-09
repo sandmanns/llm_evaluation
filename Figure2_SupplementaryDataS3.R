@@ -241,35 +241,22 @@ plot4<-readPNG(paste0(dir,"Violin_Treatment_2.png"))
 plot5<-readPNG(paste0(dir,"Cumplot_Treatment.png"))
 
 
-png(paste0(dir,"Figure2.png"),width = 2100,height = 1500)
-layout(matrix(c(rep(6,21),
-                rep(c(rep(1,7),rep(2,7),rep(3,7)),7),
+png(paste0(dir,"Figure2.png"),width = 2100,height = 1400)
+layout(matrix(c(rep(c(rep(1,7),rep(2,7),rep(3,7)),7),
                 rep(c(rep(4,14),rep(5,7)),7)),nrow = 15,byrow = T))
 par(mar=c(0,0,0,0))
 
-plot(NULL,xlim=c(0,1),ylim=c(0,1),xaxt="n",yaxt="n",xaxs="i",yaxs="i")
+plot(NULL,xlim=c(0,1),ylim=c(0,1),xaxt="n",yaxt="n",xaxs="i",yaxs="i",bty="n")
 rasterImage(plot1,0.02,0.02,0.98,0.98)
-plot(NULL,xlim=c(0,1),ylim=c(0,1),xaxt="n",yaxt="n",xaxs="i",yaxs="i")
+plot(NULL,xlim=c(0,1),ylim=c(0,1),xaxt="n",yaxt="n",xaxs="i",yaxs="i",bty="n")
 rasterImage(plot2,0.02,0.02,0.98,0.98)
-plot(NULL,xlim=c(0,1),ylim=c(0,1),xaxt="n",yaxt="n",xaxs="i",yaxs="i")
+plot(NULL,xlim=c(0,1),ylim=c(0,1),xaxt="n",yaxt="n",xaxs="i",yaxs="i",bty="n")
 rasterImage(plot3,0.02,0.02,0.98,0.98)
 
-plot(NULL,xlim=c(0,1),ylim=c(0,1),xaxt="n",yaxt="n",xaxs="i",yaxs="i")
+plot(NULL,xlim=c(0,1),ylim=c(0,1),xaxt="n",yaxt="n",xaxs="i",yaxs="i",bty="n")
 rasterImage(plot4,0.005,0.005,0.995,0.995)
-plot(NULL,xlim=c(0,1),ylim=c(0,1),xaxt="n",yaxt="n",xaxs="i",yaxs="i")
+plot(NULL,xlim=c(0,1),ylim=c(0,1),xaxt="n",yaxt="n",xaxs="i",yaxs="i",bty="n")
 rasterImage(plot5,0.02,0.02,0.98,0.98)
-
-plot(NULL,xlim=c(0,1),ylim=c(0,1),xaxt="n",yaxt="n",xaxs="i",yaxs="i")
-text(0.5,0.5,"Treatment",cex=10,font=2)
-box(which="plot",lwd=7)
 dev.off()
 
-plot<-readPNG(paste0(dir,"Figure2.png"))
-png(paste0(dir,"Figure2b.png"),width = 2100,height = 1500)
-layout(matrix(c(1)))
-par(mar=c(0.5,0.5,0.5,0.5))
-plot(NULL,xlim=c(0,1),ylim=c(0,1),xaxt="n",yaxt="n",xaxs="i",yaxs="i")
-rasterImage(plot,0,0,1,1)
-box(which="plot",lwd=10,col="black")
-dev.off()
 
