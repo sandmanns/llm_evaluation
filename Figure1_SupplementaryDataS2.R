@@ -2,7 +2,7 @@ library(openxlsx)
 library(vioplot)
 dir<-"C:/Paper/Figures/"
 
-input<-read.xlsx(paste0(dir,"Supplementary Data S1.xlsx"),sheet=1)
+input<-read.xlsx(paste0(dir,"Supplementary_Data_S1.xlsx"),sheet=1)
 
 input<-input[,c(3,1,2,4,
                 11,24,
@@ -29,12 +29,12 @@ par(mar=c(0,0,0,0))
 
 ##Bubbleplot DeepSeek-R1 vs GPT-4o
 d_both<-table(input[,c("DiagnosisDeepR","DiagnosisGPT4o")])
-d_both<-0.2+d_both/max(d_both)
-d_both[d_both==0.2]<-0
+d_both<-0.16+d_both/max(d_both)
+d_both[d_both==0.16]<-0
 par(mar=c(4,5,1,1),mgp=c(2.5,1.2,0))
 plot(NULL,xlim=c(1,5),ylim=c(1,5),xlab="DeepSeek-R1",ylab="GPT-4o",cex.lab=1,
      cex.main=1,cex.axis = 1,las=1)
-abline(a=0,b=1,lty=2,col="grey40",lwd=3)
+abline(a=0,b=1,lty=2,col="grey40",lwd=2)
 for(i in as.numeric(rownames(d_both))){
   for(j in as.numeric(colnames(d_both))){
     temp<-seq(d_both[which(as.numeric(rownames(d_both))==i),
@@ -51,12 +51,12 @@ text(x=0.08,y=5,"A",xpd=T,font=2,cex=2)
 
 ##Bubbleplot Gemini vs GPT-4o
 d_both<-table(input[,c("DiagnosisGemini","DiagnosisGPT4o")])
-d_both<-0.2+d_both/max(d_both)
-d_both[d_both==0.2]<-0
+d_both<-0.16+d_both/max(d_both)
+d_both[d_both==0.16]<-0
 par(mar=c(4,5,1,1),mgp=c(2.5,1.2,0))
 plot(NULL,xlim=c(1,5),ylim=c(1,5),xlab="Gemi2FTE",ylab="GPT-4o",cex.lab=1,
      cex.main=1,cex.axis = 1,las=1)
-abline(a=0,b=1,lty=2,col="grey40",lwd=3)
+abline(a=0,b=1,lty=2,col="grey40",lwd=2)
 for(i in as.numeric(rownames(d_both))){
   for(j in as.numeric(colnames(d_both))){
     temp<-seq(d_both[which(as.numeric(rownames(d_both))==i),
@@ -73,12 +73,12 @@ text(x=0.08,y=5,"B",xpd=T,font=2,cex=2)
 
 ##Bubbleplot Gemini vs DeepSeek-R1
 d_both<-table(input[,c("DiagnosisGemini","DiagnosisDeepR")])
-d_both<-0.2+d_both/max(d_both)
-d_both[d_both==0.2]<-0
+d_both<-0.16+d_both/max(d_both)
+d_both[d_both==0.16]<-0
 par(mar=c(4,5,1,1),mgp=c(2.5,1.2,0))
 plot(NULL,xlim=c(1,5),ylim=c(1,5),xlab="Gemi2FTE",ylab="DeepSeek-R1",cex.lab=1,
      cex.main=1,cex.axis = 1,las=1)
-abline(a=0,b=1,lty=2,col="grey40",lwd=3)
+abline(a=0,b=1,lty=2,col="grey40",lwd=2)
 for(i in as.numeric(rownames(d_both))){
   for(j in as.numeric(colnames(d_both))){
     temp<-seq(d_both[which(as.numeric(rownames(d_both))==i),
@@ -95,12 +95,12 @@ text(x=0.08,y=5,"C",xpd=T,font=2,cex=2)
 
 ##Bubbleplot DeepSeek-V3 vs DeepSeek-R1
 d_both<-table(input[,c("DiagnosisDeepV","DiagnosisDeepR")])
-d_both<-0.2+d_both/max(d_both)
-d_both[d_both==0.2]<-0
+d_both<-0.16+d_both/max(d_both)
+d_both[d_both==0.16]<-0
 par(mar=c(4,5,1,1),mgp=c(2.5,1.2,0))
 plot(NULL,xlim=c(1,5),ylim=c(1,5),xlab="DeepSeek-V3",ylab="DeepSeek-R1",cex.lab=1,
      cex.main=1,cex.axis = 1,las=1)
-abline(a=0,b=1,lty=2,col="grey40",lwd=3)
+abline(a=0,b=1,lty=2,col="grey40",lwd=2)
 for(i in as.numeric(rownames(d_both))){
   for(j in as.numeric(colnames(d_both))){
     temp<-seq(d_both[which(as.numeric(rownames(d_both))==i),
@@ -124,35 +124,35 @@ vioplot(x = as.matrix(input$DiagnosisGPT4o),
         col=c("royalblue3"),ylab="",
         drawRect=F,cex.lab=1,at=1,
         cex.main=1,cex.axis = 1,las=1,xaxt="n",ylim=c(0,5),main="")
-points(jitter(rep(1,110),amount = 0.1),input$DiagnosisGPT4o[1:110],pch=16,cex=1)
-points(jitter(rep(1,15),amount = 0.1),input$DiagnosisGPT4o[111:125],pch=16,cex=1.3,col="red")
+points(jitter(rep(1,110),amount = 0.1),input$DiagnosisGPT4o[1:110],pch=16,cex=0.95)
+points(jitter(rep(1,15),amount = 0.1),input$DiagnosisGPT4o[111:125],pch=16,cex=1.25,col="red")
 
 vioplot(x = as.matrix(input$DiagnosisDeepR),add=T,
         col=c("deepskyblue3"),drawRect=F,at=2)
-points(jitter(rep(2,110),amount = 0.1),input$DiagnosisDeepR[1:110],pch=16,cex=1)
-points(jitter(rep(2,15),amount = 0.1),input$DiagnosisDeepR[111:125],pch=16,cex=1.3,col="red")
+points(jitter(rep(2,110),amount = 0.1),input$DiagnosisDeepR[1:110],pch=16,cex=0.95)
+points(jitter(rep(2,15),amount = 0.1),input$DiagnosisDeepR[111:125],pch=16,cex=1.25,col="red")
 
 vioplot(x = as.matrix(input$DiagnosisDeepV),add=T,
         col=c("deepskyblue1"),drawRect=F,at=3)
-points(jitter(rep(3,110),amount = 0.1),input$DiagnosisDeepV[1:110],pch=16,cex=1)
-points(jitter(rep(3,15),amount = 0.1),input$DiagnosisGPT4o[111:125],pch=16,cex=1.3,col="red")
+points(jitter(rep(3,110),amount = 0.1),input$DiagnosisDeepV[1:110],pch=16,cex=0.95)
+points(jitter(rep(3,15),amount = 0.1),input$DiagnosisGPT4o[111:125],pch=16,cex=1.25,col="red")
 
 vioplot(x = as.matrix(input$DiagnosisGemini),add=T,
         col=c("lightblue1"),drawRect=F,at=4)
-points(jitter(rep(4,110),amount = 0.1),input$DiagnosisGemini[1:110],pch=16,cex=1)
-points(jitter(rep(4,15),amount = 0.1),input$DiagnosisGemini[111:125],pch=16,cex=1.3,col="red")
+points(jitter(rep(4,110),amount = 0.1),input$DiagnosisGemini[1:110],pch=16,cex=0.95)
+points(jitter(rep(4,15),amount = 0.1),input$DiagnosisGemini[111:125],pch=16,cex=1.25,col="red")
 
 vioplot(x = as.matrix(input$Diagnosis4),add=T,
         col=c("seagreen4"),drawRect=F,at=5)
-points(jitter(rep(5,110),amount = 0.1),input$Diagnosis4[1:110],pch=16,cex=1)
+points(jitter(rep(5,110),amount = 0.1),input$Diagnosis4[1:110],pch=16,cex=0.95)
 
 vioplot(x = as.matrix(input$Diagnosis3),add=T,
         col=c("seagreen2"),drawRect=F,at=6)
-points(jitter(rep(6,110),amount = 0.1),input$Diagnosis3[1:110],pch=16,cex=1)
+points(jitter(rep(6,110),amount = 0.1),input$Diagnosis3[1:110],pch=16,cex=0.95)
 
 vioplot(x = as.matrix(input$DiagnosisG),add=T,
         col=c("olivedrab2"),drawRect=F,at=7)
-points(jitter(rep(7,110),amount = 0.1),input$DiagnosisG[1:110],pch=16,cex=1)
+points(jitter(rep(7,110),amount = 0.1),input$DiagnosisG[1:110],pch=16,cex=0.95)
 
 
 points(x=c(1,2),y=c(2.5,2.5),type="l",lwd=1)

@@ -2,7 +2,7 @@ library(openxlsx)
 library(vioplot)
 dir<-"C:/Paper/Figures/"
 
-input<-read.xlsx(paste0(dir,"Supplementary Data S1.xlsx"),sheet=1)
+input<-read.xlsx(paste0(dir,"Supplementary_Data_S1.xlsx"),sheet=1)
 
 input<-input[,c(3,1,2,4,
                 11,24,
